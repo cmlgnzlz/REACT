@@ -6,7 +6,8 @@ function App() {
     <div>
       <h1>Clase 01 / React</h1>
       <h2>Camilo Gonzalez</h2>
-      <h2>Esto esta escrito dentro de una funcion</h2>
+      <h2>Tienda</h2>
+      <h3>Proximanente</h3>
     </div>
       );
 }
