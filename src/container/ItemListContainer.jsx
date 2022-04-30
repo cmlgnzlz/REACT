@@ -1,10 +1,29 @@
-const ItemListContainer = () => {
-    return(
-           <div class="text-center text-neutral-content">
-               <h1 class="text-5xl font-bold p-20">Bienvenid@!</h1>
-               <h2 class="text-3xl font-bold pb-20">Muy pronto conocerás nuestra linea de productos!</h2>
-           </div>      
-           )
-}
+import { useEffect, useState } from "react"
+import ItemCard from "../components/ItemCard"
+import { items as itemData } from "../data/items"
 
-export default ItemListContainer
+const ItemContainer = () => {
+
+  const [items, setItem] = useState([])
+
+  useEffect( ()=>{
+    const getItems = new Promise( (resolve,reject) => {
+      setTimeout(() => {
+        resolve(itemData)
+        reject('error')
+      }, 2000)
+    })
+    
+    getItems.then( data => {
+        console.log(data)
+        setItem(data)
+      })
+  }, [])
+
+  return (
+    <div class="flex flex-wrap items-stretch">
+      { items.map( i => <ItemCard key={i.id} data={i}/>) }
+    </div>
+  )
+}
+export default ItemContainer

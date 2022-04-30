@@ -17,7 +17,7 @@ const Navbar = () => {
                 </div>
             </div>
             <div class="navbar-center">
-                <a class="btn btn-ghost normal-case text-3xl text-gray-500">kuzin</a>
+                <a class="btn btn-ghost normal-case text-3xl text-gray-500" href>kuzin</a>
             </div>
             <div class="navbar-end">
                 <CartWidget/>
