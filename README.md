@@ -3,9 +3,14 @@
 ## Comision 31860
 
 ### `Camilo Gonzalez`
-### `Clase4`
+### `Clase 7&8 + Primera Entrega `
 
-Trabajo en ItemListContainter.jsx
-Se agrega ItemCard.js
-Se agrega items.js
-Se agrega carpeta images
+### Trabajo en App.js con routing
+### Trabajo en ItemListContainter.jsx agregando rueda de carga
+### Trabajo en ItemCard.js
+### Trabajo en items.js
+
+#### Se agrega ItemDetailContainer.jsx
+#### Se agrega ItemDetail.js que muestra descripcion de producto con nuevos detalles
+#### Se agrega Contacto.jsx como placeholder
+#### Se agrega Nosotros.jsx como placeholder
