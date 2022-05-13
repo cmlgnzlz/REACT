@@ -12,7 +12,10 @@ const Navbar = () => {
                     <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to={'/'}>Inicio</Link></li>
                         <li><Link to={'/nosotros'}>Nosotros</Link></li>
-                        <li><Link to={'/productos'}>Productos</Link></li>
+                        <li class="dropdown"><Link to={'/productos'}><span>Productos</span></Link>
+                                <ul class="dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"><li><Link to={'/categorias/pol'}>Polarizados</Link></li>
+                                <li><Link to={'/categorias/col'}>Colores</Link></li></ul>
+                        </li>                         
                         <li><Link to={'/contacto'}>Contacto</Link></li>
                     </ul>
                 </div>

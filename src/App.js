@@ -22,6 +22,7 @@ function App() {
           <Route path='/nosotros' element={<Nosotros/>}/>
           <Route path='/contacto' element={<Contacto/>}/>
           <Route path='/productos/:itemId' element={<ItemDetailContainer/>}/>
+          <Route path='/categorias/:itemCat' element={<ItemListContainer/>}/>
         </Routes>
       </BrowserRouter>
     </div>

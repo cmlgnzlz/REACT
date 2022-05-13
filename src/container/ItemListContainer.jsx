@@ -1,25 +1,36 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import ItemCard from "../components/ItemCard"
 import { items as itemData } from "../data/items"
 
-const ItemContainer = () => {
+const ItemListContainer = () => {
 
-  const [items, setItem] = useState([])
-  const [cargando, setCargando] = useState( true )
+  let [items, setItem] = useState([])
+  const { itemCat } = useParams()
+  const [cargando, setCargando] = useState( [] )
   
   useEffect( ()=>{
     const getItems = new Promise( (resolve,reject) => {
+      setCargando(true)
       setTimeout(() => {
-        resolve(itemData)
-        reject('error')
+            if (itemCat) {
+                console.log('Hay itemCat')
+                console.log(itemCat)
+                resolve(itemData.filter( i => i.cat === itemCat))
+                reject('error')
+            } else {
+                resolve(itemData)
+                console.log('NO hay itemCat')
+            }
       }, 2000)
     })
     
     getItems.then( data => {
         setCargando(false)
         setItem(data)
+        console.log(items)
       })
-  }, [])
+  }, [itemCat])
 
   return (
     <div class="flex w-full flex-wrap justify-center items-stretch mt-10">
@@ -36,4 +47,4 @@ const ItemContainer = () => {
     </div>
   )
 }
-export default ItemContainer
+export default ItemListContainer
