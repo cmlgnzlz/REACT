@@ -3,17 +3,12 @@
 ## Comision 31860
 
 ### `Camilo Gonzalez`
-### `Clase 7&8 + Primera Entrega `
+### `Clase 9&10`
 
-### Trabajo en App.js con routing
-### Trabajo en ItemListContainter.jsx agregando rueda de carga
-### Trabajo en ItemCard.js
-### Trabajo en items.js
-
-#### Se agrega ItemDetailContainer.jsx
-#### Se agrega ItemDetail.js que muestra descripcion de producto con nuevos detalles
-#### Se agrega Contacto.jsx como placeholder
-#### Se agrega Nosotros.jsx como placeholder
-
-#### 13/05
-#### Trabajo en App.js ItemListContainter.jsx, items.js y Navbar.js para categorizar la lista de productos y generar filtrado con la seleccion en Navbar
+#### Nuevos componentes: CartCard.js, ItemCount.js
+#### Nuevo container: Cart.jsx
+#### Se agrega cartContext.js
+#### Trabajo en CartWidget, para mostrar cantidad de items en el carro. Al hacer click, redirige al carro ubicado en Cart.jsx
+#### Trabajo en ItemCard, para incluir la funcionalidad del ItemCount
+#### Trabajo en ItemDetail, para incluir la funcionalidad del ItemCount. Al agregar items desde este detail, el boton se transforma para redirigir al carro, a diferencia del ItemCard
+#### Trabajo en App.js, para incluir CartContainer desde cartContext, y se agrega nueva ruta hacia el carro
