@@ -9,6 +9,28 @@ import Contacto from './container/Contacto';
 import CartProvider from './context/cartContext';
 import Cart from './container/Cart';
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCFT3AacKNr7zrZToQcQuxFbBobN8YOyaI",
+  authDomain: "kuzin-9f2af.firebaseapp.com",
+  projectId: "kuzin-9f2af",
+  storageBucket: "kuzin-9f2af.appspot.com",
+  messagingSenderId: "419536581428",
+  appId: "1:419536581428:web:5c57fc8c7d080d0d9bab61",
+  measurementId: "G-G04MV8TETP"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
 
 function App() {
   return (

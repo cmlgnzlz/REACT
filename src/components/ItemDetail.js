@@ -7,11 +7,14 @@ import ItemCount from "./ItemCount"
 const ItemDetail = ({producto}) => {
 
   const {addItem} = useContext(cartContext)
+  console.log(producto);
+  console.log(producto.img);
   const [goCart, setGoCart] = useState(false)
-
+  
   function handleOnAdd(count) {
     setGoCart(true);
     addItem(producto, count);
+
   }
 
   return (

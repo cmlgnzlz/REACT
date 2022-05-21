@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ItemCard from "../components/ItemCard"
-import { items as itemData } from "../data/items"
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
 
 const ItemListContainer = () => {
 
@@ -10,23 +10,41 @@ const ItemListContainer = () => {
   const [cargando, setCargando] = useState( [] )
   
   useEffect( ()=>{
-    const getItems = new Promise( (resolve,reject) => {
-      setCargando(true)
-      setTimeout(() => {
-            if (itemCat) {
-                resolve(itemData.filter( i => i.cat === itemCat))
-                reject('error')
-            } else {
-                resolve(itemData)
-            }
-      }, 2000)
-    })
     
-    getItems.then( data => {
-        setCargando(false)
+    const getItems = () => {
+      setCargando(true)
+      if (itemCat) {
+        getItemCat()
+      } else {
+        getAllItem()
+      }
+    }
+
+    const getItemCat = () => {
+      const db = getFirestore()
+      const catQuery = query( collection(db,"items"), where("cat", "==", itemCat))
+      getDocs(catQuery).then( (snapshot)  => {
+        const data = snapshot.docs.map(i => ({'id': i.id, ...i.data()}))
         setItem(data)
+        setCargando(false)
       })
+    }
+
+    const getAllItem = () => {
+      const db = getFirestore()
+      const itemData = collection(db, "items")
+      getDocs(itemData).then( snapshot => {
+        const data = snapshot.docs.map(i => ({'id': i.id, ...i.data()}))
+        setItem(data)
+        setCargando(false)
+      })
+    }
+    
+    getItems()
+
   }, [itemCat])
+
+  
 
   return (
       <div class="flex w-full flex-wrap justify-center items-stretch mt-10">

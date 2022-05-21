@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ItemDetail from "../components/ItemDetail"
-import { items } from "../data/items"
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
+
 
 const ItemDetailContainer = () => {
 
@@ -10,23 +11,22 @@ const ItemDetailContainer = () => {
     const [cargando, setCargando] = useState(true)
     
     useEffect( () => {
-        (async () => {
-            const itemData = await getItemDetail()
-            if (itemData) {
-                setItem(itemData)
-            }
-        })()
+        const getItemDetail = () => {
+            const db = getFirestore()
+            console.log(itemId);
+            const q = query( collection(db,"items"), where("id", "==", parseInt(itemId)))
+            getDocs(q).then( (snapshot)  => {
+              const data = snapshot.docs.map(i => ({'id': i.id, ...i.data()}))
+              setItem(data)
+              setCargando(false)
+            })
+        }
+
+        getItemDetail()
 
     }, [itemId])
     
-    const getItemDetail = () => {
-        return new Promise ( (resolve) => {
-            setTimeout(() => {
-                resolve(items.find( item => item.id == itemId))
-                setCargando(false)
-            }, 2000);
-        })
-    }
+
     return (
         <>
         <div class="flex w-full flex-wrap justify-center items-stretch mt-10">
@@ -38,7 +38,7 @@ const ItemDetailContainer = () => {
                 </svg>      
             </div>
             :
-            <ItemDetail producto = {item}/>
+            item.map( i => <ItemDetail key={i.id} producto={i}/>)
             }
         </div>
         </>
