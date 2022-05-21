@@ -3,12 +3,11 @@
 ## Comision 31860
 
 ### `Camilo Gonzalez`
-### `Clase 9&10`
+### `Clase 11&12`
 
-#### Nuevos componentes: CartCard.js, ItemCount.js
-#### Nuevo container: Cart.jsx
-#### Se agrega cartContext.js
-#### Trabajo en CartWidget, para mostrar cantidad de items en el carro. Al hacer click, redirige al carro ubicado en Cart.jsx
-#### Trabajo en ItemCard, para incluir la funcionalidad del ItemCount
-#### Trabajo en ItemDetail, para incluir la funcionalidad del ItemCount. Al agregar items desde este detail, el boton se transforma para redirigir al carro, a diferencia del ItemCard
-#### Trabajo en App.js, para incluir CartContainer desde cartContext, y se agrega nueva ruta hacia el carro
+#### Trabajo en CartWidget, para que el indicador muestre la cantidad de unidades total, ya que anteriormente mostraba la cantidad de items, ignorando la cantidad en particular de cada uno.
+#### Trabajo en App.js, para incorporar las configuraciones de firebase.
+#### Trabajo en ItemDetailContainer, reemplazando async mocks con funcionalidades firebase.
+#### Trabajo en ItemListContainer, reemplazando async mocks con funcionalidades firebase.
+#### Elimina carpeta de imagenes, ya que fueron subidas a un hosting.
+#### Elimina items.js, para utilizar la base de datos creada en Firestore

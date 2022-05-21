@@ -13,9 +13,8 @@ const ItemDetailContainer = () => {
     useEffect( () => {
         const getItemDetail = () => {
             const db = getFirestore()
-            console.log(itemId);
-            const q = query( collection(db,"items"), where("id", "==", parseInt(itemId)))
-            getDocs(q).then( (snapshot)  => {
+            const queryItem = query( collection(db,"items"), where("id", "==", parseInt(itemId)))
+            getDocs(queryItem).then( (snapshot)  => {
               const data = snapshot.docs.map(i => ({'id': i.id, ...i.data()}))
               setItem(data)
               setCargando(false)
@@ -26,7 +25,6 @@ const ItemDetailContainer = () => {
 
     }, [itemId])
     
-
     return (
         <>
         <div class="flex w-full flex-wrap justify-center items-stretch mt-10">

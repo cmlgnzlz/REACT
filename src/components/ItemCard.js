@@ -6,14 +6,14 @@ import ItemCount from "./ItemCount"
 const ItemCard = ( {data} ) => {
 
     const {addItem} = useContext(cartContext)
-
+    
     function handleOnAdd(count) {
         addItem(data, count);
         }
 
     return(
         <div className="card text-center w-96 bg-base-100 shadow-xl m-10 border-4 border-neutral-content p-5 ">
-            <img src={`./data/images/${data.id}.jpg`} alt={data.name}/>
+            <img src={data.img} alt={data.name}/>
             <div>
                 <p className="font-bold text-3xl mt-2 mb-2">{data.name}</p>
                 <p className="font-bold text-xl mt-2 mb-2 text-white">${data.price}</p>

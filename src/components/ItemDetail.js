@@ -7,8 +7,6 @@ import ItemCount from "./ItemCount"
 const ItemDetail = ({producto}) => {
 
   const {addItem} = useContext(cartContext)
-  console.log(producto);
-  console.log(producto.img);
   const [goCart, setGoCart] = useState(false)
   
   function handleOnAdd(count) {
@@ -22,9 +20,9 @@ const ItemDetail = ({producto}) => {
     <div className="flex w-4/5 bg-base-100 shadow-xl m-10 border-4 border-neutral-content p-5 ">
         <img className="card-img-top"  src={producto.img} alt={producto.name}/>
         <div className="card text-center">
-            <p className="font-bold text-3xl mt-2 mb-2 ">{producto.name}</p>
-            <p className="font-bold text-xl mt-2 mb-2 text-white">{producto.desc}</p>   
-            <p className="font-bold text-xl mt-2 mb-2 text-white">{producto.price}</p>
+            <p className="font-bold text-3xl mt-2 mb-1 ">{producto.name}</p>
+            <p className="font-bold text-xl mt-1 mb-1 text-white">{producto.desc}</p>   
+            <p className="font-bold text-xl mt-1 mb-1 text-white">{producto.price}</p>
             <div className="m-auto align-center">
                 { goCart ?
                   <Link to="/cart" className="btn btn-primar">Terminar compra</Link>
