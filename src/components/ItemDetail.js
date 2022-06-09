@@ -12,7 +12,6 @@ const ItemDetail = ({producto}) => {
   function handleOnAdd(count) {
     setGoCart(true);
     addItem(producto, count);
-
   }
 
   return (

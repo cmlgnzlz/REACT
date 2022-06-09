@@ -31,6 +31,7 @@ const ItemListContainer = () => {
     }
 
     const getAllItem = () => {
+      console.log("saludos")
       const db = getFirestore()
       const itemData = collection(db, "items")
       getDocs(itemData).then( snapshot => {
