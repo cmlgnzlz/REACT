@@ -5,7 +5,6 @@
 ## Proyecto eCommerce React JS 
 >## **kuzin**
 
-<<<<<<< HEAD
 ### `Camilo Gonzalez`
 ### `Proyecto Final`
 
@@ -15,4 +14,3 @@
 >### Proyecto realizado en curso React JS
 >### Comisión 31860 dictada por Adrian Escalante
 >### Tutor: Josué Oroya
->>>>>>> firebase
