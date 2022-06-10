@@ -1,9 +1,4 @@
-import { useContext } from "react";
-import { cartContext } from '../context/cartContext';
-
-const CartCard = ( {data} ) => {
-
-    const {removeItem} = useContext(cartContext)
+const OrderCard = ( {data} ) => {
 
     return(
         <div className="card text-center w-auto h-auto bg-base-100 shadow-xl m-10 border-4 border-neutral-content p-5 ">
@@ -17,8 +12,7 @@ const CartCard = ( {data} ) => {
                                 <div className="text-black-400">Cantidad: {data.count}</div>
                             </div>
                             <div>
-                                <div><button onClick={() => removeItem(data.item)} className="btn btn-sm">X</button></div>
-                                <div className="flex flex-col w-18 font-bold items-end" style={{ color: 'white' }}>${data.total}</div>
+                                <div className="flex flex-col w-18 font-bold items-end" style={{ color: 'white' }}>{data.total}</div>
                             </div>
                         </div>
                     </div>
@@ -28,4 +22,4 @@ const CartCard = ( {data} ) => {
     )
 }
 
-export default CartCard
+export default OrderCard

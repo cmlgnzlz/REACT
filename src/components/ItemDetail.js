@@ -12,7 +12,6 @@ const ItemDetail = ({producto}) => {
   function handleOnAdd(count) {
     setGoCart(true);
     addItem(producto, count);
-
   }
 
   return (
@@ -23,13 +22,15 @@ const ItemDetail = ({producto}) => {
             <p className="font-bold text-3xl mt-2 mb-1 ">{producto.name}</p>
             <p className="font-bold text-xl mt-1 mb-1 text-white">{producto.desc}</p>   
             <p className="font-bold text-xl mt-1 mb-1 text-white">{producto.price}</p>
-            <div className="m-auto align-center">
+            <div className="m-auto align-center pb-4">
                 { goCart ?
                   <Link to="/cart" className="btn btn-primar">Terminar compra</Link>
                     : 
                   <ItemCount stock={producto.stock} initial={1} onAdd={handleOnAdd}/>
                 }
-                <p>Apurate! Quedan {producto.stock}</p>
+                <div>
+                  <p>Apurate! Quedan {producto.stock}</p>
+                </div>
             </div>
         </div>
     </div>
