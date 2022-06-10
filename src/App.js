@@ -15,10 +15,10 @@ function App() {
   return (
     <CartProvider>
       <UserProvider>
-        <div class="shadow-md w-4/5 m-auto">
-          <p class='shadow-lg p-5'>
-            <h1 class="text-8xl font-bold text-gray-300 hover:bg-neutral-content rounded-box p-5">kuzin</h1>
-          </p>
+        <div className="shadow-md w-4/5 m-auto">
+          <h1 className='shadow-lg p-5'>
+            <p className="text-8xl font-bold text-gray-300 hover:bg-neutral-content rounded-box p-5">kuzin</p>
+          </h1>
             <BrowserRouter> 
               <Navbar/>
               <Routes>

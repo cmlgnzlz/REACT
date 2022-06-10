@@ -1,5 +1,7 @@
 import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import OrderCard from "../components/OrderCard";
 import { SaveOrder } from "../context/cartContext";
 import { SaveBuyer } from "../context/userContext";
@@ -8,55 +10,46 @@ const SendOrder = () => {
 
     const { cart } = SaveOrder()
     const { user } = SaveBuyer()
-    const orderID = ""
+    const [orderID,setorderID] = useState()
 
-    console.log(cart);
-    console.log(user);
     useEffect( () => {
+
+        const sendOrderHandler = () => {
+
+            let usuario = {
+                name:user.name,
+                surname:user.surname,
+                phone:user.phone,
+                email:user.email,          
+            }
+            let itemes = {
+                items:cart,
+                total:user.total
+            }
+            let order = {
+                buyer:usuario,
+                items:itemes
+            }
+            saveToFirestore(order)
+
+        }
+
+        const saveToFirestore = (order) => { 
+            const db = getFirestore()
+            const orderCollection = collection(db, 'orders')
+            addDoc(orderCollection,order).then( (response) => {
+                setorderID(response.id)
+            })
+            .catch(function(error) {
+                console.error("Error: ", error)
+            })
+        }
+
         if( cart.length > 0 ){
             sendOrderHandler()
         }
-    },[])
 
-    const sendOrderHandler = () => {
-
-        let usuario = {
-            name:user.name,
-            surname:user.surname,
-            phone:user.phone,
-            email:user.email,          
-        }
-        console.log(usuario)
-        let itemes = {
-            items:cart,
-            total:user.total
-        }
-        console.log(itemes)
-        let order = {
-            buyer:usuario,
-            items:itemes
-        }
-        console.log(order)
-        saveToFirestore(order)
-
-    }
-
-    const saveToFirestore = (order) => { 
-        const db = getFirestore()
-        console.log(order);
-        console.log(db);
-        const orderCollection = collection(db, 'orders')
-        console.log(orderCollection);
-        addDoc(orderCollection,order).then( (response) => {
-            console.log(response.id)
-            const orderID = response.id
-            console.log(orderID)
-        })
-        .catch(function(error) {
-            console.error("Error adding document: ", error);
-        })
-    }
-    
+    },[cart])
 
 
     return (
@@ -73,8 +66,12 @@ const SendOrder = () => {
                     {cart.map( i => <OrderCard key={i.id} data={i}/>)}
                 </div>
                 <div className="text-xl font-bold mt-4">El total de tu pedido es de: <span className="text-2xl font-bold" style={{ color: 'white' }}>${user.total}</span> </div>
-                <div className="text-m font-bold mt-2"> Tu compra será confirmada pronto. El N° de orden de tu pedido es: {orderID}</div>
-                <button className="btn btn-outline-primary btn-lg mt-10"></button>
+                <div className="text-m font-bold mt-2"> Tu compra será confirmada pronto. El N° de orden de tu pedido es: <span className="text-xl font-bold" style={{ color: 'orange' }}>{orderID}</span></div>
+                <div>
+                    <Link to={'/'}>
+                        <button className="btn btn-outline-primary btn-lg mt-10">VOLVER AL INICIO</button>
+                    </Link>
+                </div>
                 </div>              
             </div>
         </div>

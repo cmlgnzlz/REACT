@@ -1,13 +1,11 @@
-# Curso ReactJS
+# Curso ReactJS - Comision 31860
+## `Proyecto Final`
+## `Camilo Gonzalez`
 
-## Comision 31860
+## Proyecto eCommerce React JS 
+>## **kuzin**
 
-### `Camilo Gonzalez`
-### `Clase 11&12`
-
-#### Trabajo en CartWidget, para que el indicador muestre la cantidad de unidades total, ya que anteriormente mostraba la cantidad de items, ignorando la cantidad en particular de cada uno.
-#### Trabajo en App.js, para incorporar las configuraciones de firebase.
-#### Trabajo en ItemDetailContainer, reemplazando async mocks con funcionalidades firebase.
-#### Trabajo en ItemListContainer, reemplazando async mocks con funcionalidades firebase.
-#### Elimina carpeta de imagenes, ya que fueron subidas a un hosting.
-#### Elimina items.js, para utilizar la base de datos creada en Firestore
+>### Tienda ecommerce de lentes de sol
+>### Proyecto realizado en curso React JS
+>### Comisión 31860 dictada por Adrian Escalante
+>### Tutor: Josué Oroya

@@ -43,7 +43,6 @@ const CartProvider = ({children}) => {
     }
 
     const isInCart = (id) => { 
-        console.log(cart)
         return cart.some( (i) => i.item.id === id)
     }
   
