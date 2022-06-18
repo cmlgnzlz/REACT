@@ -9,10 +9,7 @@ import Contacto from './container/Contacto';
 import CartProvider from './context/cartContext';
 import UserProvider from './context/userContext';
 import Cart from './container/Cart';
-<<<<<<< HEAD
-=======
 import SendOrder from './container/SendOrder';
->>>>>>> firebase
 
 function App() {
   return (
